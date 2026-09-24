@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dahlia Event – Årshjulet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --birch:#EDEFEA;
+  --paper:#F8F9F6;
+  --pine:#1D3A2E;
+  --moss:#5E7266;
+  --dahlia:#A3174A;
+  --dahlia-soft:#E9C9D3;
+  --line:#C9D0C8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--birch);color:var(--pine);font-family:Archivo,system-ui,sans-serif;font-size:1.0625rem;line-height:1.55;font-variation-settings:"wdth" 100}
+a{color:inherit}
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+:focus-visible{outline:3px solid var(--dahlia);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
+.top img{height:34px;width:auto;display:block}
+.top nav{display:flex;gap:28px;font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--dahlia)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,5vw,72px);align-items:center;padding:24px 0 72px}
+h1{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(2.4rem,5.2vw,4.6rem);line-height:.98;letter-spacing:-.02em;margin:0 0 28px}
+.lede{max-width:34ch;font-size:1.2rem;color:var(--moss);margin:0 0 32px}
+.next{border-left:4px solid var(--dahlia);padding:4px 0 4px 18px}
+.next small{display:block;color:var(--moss);font-size:.95rem}
+.next strong{display:block;font-size:1.35rem;font-variation-settings:"wdth" 112;font-weight:700}
+.next a{color:var(--dahlia);font-weight:600}
+
+.wheel{width:100%;max-width:640px;justify-self:end;aspect-ratio:1}
+.wheel svg{width:100%;height:100%;overflow:visible}
+.wheel .ring{fill:none;stroke:var(--line);stroke-width:1.5}
+.wheel .tick{stroke:var(--line);stroke-width:1.5}
+.wheel .mon{font-size:15px;fill:var(--moss);font-weight:500;text-anchor:middle;dominant-baseline:middle}
+.wheel .arc{fill:none;stroke:var(--dahlia);stroke-width:10;stroke-linecap:round}
+.wheel .today{fill:var(--pine)}
+.wheel .todaylbl{font-size:13px;fill:var(--pine);font-weight:600;text-anchor:middle}
+.wheel .ev circle.halo{fill:var(--dahlia-soft);opacity:0;transition:opacity .2s}
+.wheel .ev circle.dot{fill:var(--paper);stroke:var(--dahlia);stroke-width:4;transition:r .2s}
+.wheel .ev.is-next circle.dot{fill:var(--dahlia)}
+.wheel .ev:hover circle.halo,.wheel .ev:focus circle.halo,.wheel .ev.on circle.halo{opacity:1}
+.wheel .ev{cursor:pointer;outline:none}
+.wheel .evlbl{font-size:14px;font-weight:600;fill:var(--dahlia);text-anchor:middle}
+.wheel .ev:focus-visible circle.dot{stroke:var(--pine);stroke-width:5}
+.wheel .c-date{font-size:17px;fill:var(--moss);text-anchor:middle}
+.wheel .c-name{font-size:34px;font-weight:800;fill:var(--pine);text-anchor:middle;font-variation-settings:"wdth" 118}
+.wheel .c-days{font-size:17px;fill:var(--dahlia);font-weight:600;text-anchor:middle}
+
+/* events */
+.events{background:var(--paper);padding:88px 0}
+.events h2,.about h2{font-variation-settings:"wdth" 118;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.01em;margin:0 0 40px;line-height:1.05}
+.ev-row{display:grid;grid-template-columns:120px minmax(0,1.1fr) minmax(0,1.6fr) 260px;gap:32px;align-items:center;padding:28px 0;border-top:1.5px solid var(--line);text-decoration:none;position:relative}
+.ev-row:last-child{border-bottom:1.5px solid var(--line)}
+.ev-row .d{font-variation-settings:"wdth" 125;font-weight:800;font-size:2.6rem;line-height:.9}
+.ev-row .d span{display:block;font-size:.95rem;font-weight:500;font-variation-settings:"wdth" 100;color:var(--moss);margin-top:8px}
+.ev-row h3{margin:0 0 6px;font-size:1.5rem;font-variation-settings:"wdth" 112;font-weight:700;line-height:1.15}
+.ev-row .where{color:var(--moss);font-size:.98rem}
+.ev-row p{margin:0;max-width:52ch}
+.ev-row .go{display:inline-block;margin-top:12px;font-weight:600;color:var(--dahlia);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.ev-row img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border-radius:2px;filter:saturate(.9)}
+.ev-row.on .d,.ev-row:hover .d{color:var(--dahlia)}
+.ev-row::before{content:"";position:absolute;left:-18px;top:28px;bottom:28px;width:4px;background:var(--dahlia);opacity:0;transition:opacity .2s}
+.ev-row.on::before{opacity:1}
+
+/* about */
+.about{padding:88px 0}
+.about-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px}
+.about p{max-width:58ch;margin:0 0 18px}
+.facts{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.facts li{border-top:4px solid var(--pine);padding-top:12px;font-size:.98rem}
+.facts b{display:block;font-variation-settings:"wdth" 118;font-size:1.1rem}
+.contact{background:var(--pine);color:var(--birch);padding:36px;border-radius:2px;align-self:start}
+.contact h3{margin:0 0 18px;font-variation-settings:"wdth" 118;font-size:1.4rem}
+.contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px}
+.contact dt{color:#A9BCB1}
+.contact dd{margin:0}
+.contact .btn{display:inline-block;margin-top:26px;background:var(--birch);color:var(--pine);padding:14px 22px;font-weight:700;text-decoration:none;border-radius:2px}
+.contact .btn:hover{background:var(--dahlia-soft)}
+
+footer{border-top:1.5px solid var(--line);padding:32px 0 48px;color:var(--moss);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:26px;opacity:.75}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .wheel{justify-self:center}
+  .ev-row{grid-template-columns:90px minmax(0,1fr);gap:16px 20px}
+  .ev-row .body{grid-column:2}
+  .ev-row .desc{grid-column:1 / -1}
+  .ev-row .pic{grid-column:1 / -1;order:-1}
+  .ev-row::before{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:560px){
+  .top nav{gap:16px;font-size:.95rem}
+  .top nav a:nth-child(2){display:none}
+  .top img{height:26px}
+  .ev-row .d{font-size:2rem}
+  .ev-row h3{font-size:1.25rem}
+  .facts{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:no-preference){
+  .wheel .arc{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.4s .3s cubic-bezier(.6,0,.2,1) forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a href="#"><img src="../assets/logo-h-black.png" alt="Dahlia Event"></a>
+  <nav aria-label="Huvudmeny"><a href="#evenemang">Evenemang</a><a href="#om">Om oss</a><a href="#kontakt">Kontakt</a></nav>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div>
+    <h1>Ett år av evenemang i Färila</h1>
+    <p class="lede">Dahlia Event arrangerar mässor, marknader och fordonsträffar i Hälsingland. Fyra dagar om året, öppna för alla.</p>
+    <div class="next" id="nextBox"></div>
+  </div>
+  <div class="wheel"><svg id="wheel" viewBox="0 0 600 600" role="group" aria-label="Årshjul med årets evenemang"></svg></div>
+</section>
+
+<section class="events" id="evenemang">
+  <div class="wrap">
+    <h2>Kommande evenemang</h2>
+    <div id="list"></div>
+  </div>
+</section>
+
+<section class="about wrap" id="om">
+  <div class="about-grid">
+    <div>
+      <h2>Vi bygger mötesplatser på landsbygden</h2>
+      <p>Dahlia Event är evenemangsdelen av Dahlia Motor i Färila. Vi började med ATV-Mässan och har sedan dess lagt till fler dagar under året, alltid med samma idé: det ska vara lätt att komma, billigt att vara med och roligt att stanna.</p>
+      <p>Företag, föreningar och skolor ställer ut sida vid sida. Ideella verksamheter ställer ut gratis.</p>
+      <ul class="facts">
+        <li><b>Fri entré</b>på de flesta evenemang</li>
+        <li><b>Fri parkering</b>på eller nära området</li>
+        <li><b>Gratis för ideella</b>föreningar, klubbar och skolor</li>
+      </ul>
+    </div>
+    <aside class="contact" id="kontakt">
+      <h3>Kontakta oss</h3>
+      <dl>
+        <dt>Adress</dt><dd>Pellvägen 8, Färila</dd>
+        <dt>Telefon</dt><dd><a href="tel:+46702516658">070-251 66 58</a></dd>
+        <dt>E-post</dt><dd><a href="mailto:info@dahliamotor.se">info@dahliamotor.se</a></dd>
+      </dl>
+      <a class="btn" href="mailto:info@dahliamotor.se?subject=Utst%C3%A4llare">Anmäl dig som utställare</a>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><img src="../assets/logo-h-black.png" alt="Dahlia Event"><span>Dahlia Event är en del av Dahlia Motor, Färila</span></div></footer>
+
+<script>
+const EVENTS=[
+ {id:"jul",name:"Julmarknaden",date:"2026-12-12",time:"kl. 12–18",place:"Gården på Pellvägen 8, Färila",img:"../assets/julmarknad.jpg",desc:"Hantverk, julmat att ta med hem och glögg vid elden. Lokala utställare i marknadsstånd under facklorna.",url:"#",cta:"Läs mer om Julmarknaden"},
+ {id:"skoter",name:"Skoterträffen",date:"2027-02-20",time:"kl. 10–16",place:"På isen vid Ljusnan, Färila",img:"../assets/skoter.jpg",desc:"Samling på isen med grillplats, gemensamma turer längs leden och tävlingar för barnen. Kom med egen skoter eller bara för att titta.",url:"#",cta:"Läs mer om Skoterträffen"},
+ {id:"veteran",name:"Veteranfordonsträffen",short:"Veteranträffen",date:"2027-06-12",time:"kl. 10–15",place:"Pellvägen 8, Färila",img:"../assets/veteran.jpg",desc:"Bilar, mopeder och traktorer med historia. Ställ upp din egen eller gå runt och prata motorer med ägarna.",url:"#",cta:"Läs mer om Veteranfordonsträffen"},
+ {id:"atv",name:"ATV-Mässan",date:"2027-08-28",time:"kl. 10–16",place:"Pellvägen 8, Färila",img:"../assets/atv-header-1600.jpg",desc:"Prova ATV och UTV på testbanan, träffa utställare inom skog och friluftsliv, och låt barnen köra små ATV. Gratis inträde.",url:"https://sqrddsgn.github.io/ATV-Massan/",cta:"Gå till ATV-Mässan",ext:true}
+];
+const MON=["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"];
+const fmtLong=d=>d.toLocaleDateString("sv-SE",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+const today=new Date();today.setHours(0,0,0,0);
+EVENTS.forEach(e=>{e.d=new Date(e.date+"T00:00:00");e.days=Math.round((e.d-today)/864e5)});
+const upcoming=EVENTS.filter(e=>e.days>=0).sort((a,b)=>a.d-b.d);
+const next=upcoming[0]||EVENTS[0];
+const dayWord=n=>n===0?"i dag":n===1?"i morgon":`om ${n} dagar`;
+
+// wheel
+const svg=document.getElementById("wheel"),NS="http://www.w3.org/2000/svg",C=300,R=236;
+const el=(t,a={},txt)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);if(txt!=null)n.textContent=txt;return n};
+const doy=d=>(d-new Date(d.getFullYear(),0,1))/864e5;
+const ang=d=>doy(d)/365*2*Math.PI-Math.PI/2;
+const pt=(a,r)=>[C+Math.cos(a)*r,C+Math.sin(a)*r];
+svg.append(el("circle",{class:"ring",cx:C,cy:C,r:R}));
+for(let m=0;m<12;m++){
+  const a=m/12*2*Math.PI-Math.PI/2,[x1,y1]=pt(a,R-10),[x2,y2]=pt(a,R+10);
+  svg.append(el("line",{class:"tick",x1,y1,x2,y2}));
+  const [lx,ly]=pt(a+Math.PI/12,R+34);svg.append(el("text",{class:"mon",x:lx,y:ly},MON[m]));
+}
+// arc today -> next event
+const a0=ang(today);let a1=ang(next.d);if(a1<=a0)a1+=2*Math.PI;
+const [sx,sy]=pt(a0,R),[ex,ey]=pt(a1,R),large=(a1-a0)>Math.PI?1:0;
+const arc=el("path",{class:"arc",d:`M${sx} ${sy} A${R} ${R} 0 ${large} 1 ${ex} ${ey}`});
+arc.style.setProperty("--len",Math.ceil((a1-a0)*R));svg.append(arc);
+const [tx,ty]=pt(a0,R);svg.append(el("circle",{class:"today",cx:tx,cy:ty,r:7}));
+const [tlx,tly]=pt(a0,R-30);svg.append(el("text",{class:"todaylbl",x:tlx,y:tly+4},"i dag"));
+// center
+const cDate=el("text",{class:"c-date",x:C,y:C-38}),cName=el("text",{class:"c-name",x:C,y:C+6}),cDays=el("text",{class:"c-days",x:C,y:C+44});
+svg.append(cDate,cName,cDays);
+function focusEvent(e){
+  cDate.textContent=e.d.toLocaleDateString("sv-SE",{day:"numeric",month:"long",year:"numeric"});
+  cName.textContent=e.name;
+  cDays.textContent=e.days>=0?dayWord(e.days):"har varit";
+  document.querySelectorAll(".on").forEach(n=>n.classList.remove("on"));
+  document.querySelectorAll(`[data-id="${e.id}"]`).forEach(n=>n.classList.add("on"));
+}
+EVENTS.forEach(e=>{
+  const [x,y]=pt(ang(e.d),R);
+  const g=el("a",{class:"ev"+(e===next?" is-next":""),href:"#ev-"+e.id,"data-id":e.id,"aria-label":`${e.name}, ${fmtLong(e.d)}`});
+  const [lx,ly]=pt(ang(e.d),R-44);
+  g.append(el("circle",{class:"halo",cx:x,cy:y,r:24}),el("circle",{class:"dot",cx:x,cy:y,r:11}),el("text",{class:"evlbl",x:lx,y:ly+5},e.short||e.name));
+  g.addEventListener("mouseenter",()=>focusEvent(e));g.addEventListener("focus",()=>focusEvent(e));
+  svg.append(g);
+});
+svg.addEventListener("mouseleave",()=>focusEvent(next));
+
+// next box
+document.getElementById("nextBox").innerHTML=`<small>Nästa evenemang, ${dayWord(next.days)}</small><strong>${next.name}</strong><small>${fmtLong(next.d)}<br>${next.place}</small><a href="#ev-${next.id}">Se detaljer</a>`;
+
+// list
+const list=document.getElementById("list");
+[...EVENTS].sort((a,b)=>a.d-b.d).forEach(e=>{
+  const row=document.createElement("article");row.className="ev-row";row.id="ev-"+e.id;row.dataset.id=e.id;
+  row.innerHTML=`<div class="d">${e.d.getDate()} ${MON[e.d.getMonth()]}<span>${e.d.getFullYear()}, ${e.time}</span></div>
+  <div class="body"><h3>${e.name}</h3><div class="where">${e.place}</div></div>
+  <div class="desc"><p>${e.desc}</p><a class="go" href="${e.url}"${e.ext?' target="_blank" rel="noopener"':''}>${e.cta}</a></div>
+  <div class="pic"><img src="${e.img}" alt="" loading="lazy"></div>`;
+  row.addEventListener("mouseenter",()=>focusEvent(e));
+  list.append(row);
+});
+focusEvent(next);
+</script>
+</body>
+</html>

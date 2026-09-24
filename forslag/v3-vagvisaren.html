@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dahlia Event – Vägvisaren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --snow:#EEF1F2;
+  --white:#FFFFFF;
+  --asphalt:#303438;
+  --gravel:#6A7176;
+  --brown:#7A4A26;
+  --blue:#0B5AA2;
+  --steel:#9AA3A8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--snow);color:var(--asphalt);font-family:Overpass,system-ui,sans-serif;font-size:1.0625rem;line-height:1.55}
+a{color:inherit}
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
+.top img{height:34px;display:block}
+.top nav{display:flex;gap:6px}
+.top nav a{text-decoration:none;font-weight:700;padding:8px 14px;border-radius:4px}
+.top nav a:hover{background:var(--blue);color:#fff}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,80px);align-items:end;padding-top:40px}
+.hero-text{padding-bottom:120px}
+h1{font-weight:800;font-size:clamp(2.6rem,5.4vw,4.8rem);line-height:.95;letter-spacing:-.03em;margin:0 0 24px}
+.lede{font-size:1.2rem;max-width:34ch;margin:0;color:var(--gravel)}
+
+.post{position:relative;padding:0}
+.post::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:14px;border-radius:7px 7px 0 0;background:linear-gradient(90deg,#7d868b,#c6cdd1 45%,#8a9397)}
+.post::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--asphalt)}
+.place{position:relative;display:inline-block;background:var(--blue);padding:4px;border-radius:6px;margin:0 0 28px 0}
+.place span{display:block;border:3px solid #fff;border-radius:4px;color:#fff;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.01em;padding:8px 26px 4px;line-height:1.1}
+.signs{position:relative;list-style:none;margin:0;padding:0 0 64px;display:grid;gap:14px}
+.sign{--cut:38px;display:block;position:relative;text-decoration:none;color:#fff;background:#fff;padding:4px;clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% 50%,calc(100% - var(--cut)) 100%,0 100%);transition:transform .25s cubic-bezier(.3,.7,.2,1)}
+.sign .face{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;background:var(--brown);padding:14px calc(var(--cut) + 10px) 12px 16px;clip-path:polygon(0 0,calc(100% - var(--cut) + 2px) 0,100% 50%,calc(100% - var(--cut) + 2px) 100%,0 100%)}
+.sign .sym{width:46px;height:46px;border:3px solid #fff;border-radius:3px;display:grid;place-items:center}
+.sign .sym svg{width:30px;height:30px}
+.sign .name{font-weight:700;font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.05;letter-spacing:-.01em}
+.sign .name small{display:block;font-weight:400;font-size:.95rem;opacity:.9;letter-spacing:0;margin-top:4px}
+.sign .dist{font-weight:800;font-size:clamp(1.3rem,2.3vw,1.8rem);white-space:nowrap;text-align:right;line-height:1}
+.sign .dist small{display:block;font-weight:600;font-size:.8rem;opacity:.9}
+.sign:hover,.sign:focus-visible{transform:translateX(10px)}
+.sign:focus-visible{outline:none}
+.sign:focus-visible .face{background:#5c3517}
+.sign.next{--cut:44px}
+.sign.next .face{padding-top:20px;padding-bottom:18px}
+.sign.next .name{font-size:clamp(1.5rem,2.8vw,2.1rem)}
+.signs li:nth-child(1) .sign{margin-right:0}
+.signs li:nth-child(2) .sign{margin-right:8%}
+.signs li:nth-child(3) .sign{margin-right:14%}
+.signs li:nth-child(4) .sign{margin-right:4%}
+
+/* events */
+.events{background:var(--white);padding:96px 0}
+.events h2,.about h2{font-weight:800;font-size:clamp(1.9rem,3.2vw,2.6rem);letter-spacing:-.02em;line-height:1.05;margin:0 0 48px}
+.ev{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:40px 0;border-top:2px solid var(--snow)}
+.ev:nth-child(even) .pic{order:2}
+.ev img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border-radius:6px}
+.ev .when{font-weight:700;color:var(--blue)}
+.ev h3{font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;line-height:1.05;margin:6px 0 8px;font-weight:800}
+.ev .where{color:var(--gravel);margin:0 0 16px}
+.ev p{max-width:46ch;margin:0 0 22px}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:4px}
+.btn:hover{background:#08457d}
+.btn.brown{background:var(--brown)}
+.btn.brown:hover{background:#5c3517}
+
+.about{padding:96px 0}
+.about-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px;align-items:start}
+.about p{max-width:58ch;margin:0 0 18px}
+.info{background:var(--blue);color:#fff;border-radius:8px;padding:6px}
+.info .in{border:3px solid #fff;border-radius:5px;padding:28px}
+.info h3{margin:0 0 14px;font-size:1.4rem}
+.info p{margin:0 0 4px}
+.info .btn{background:#fff;color:var(--blue);margin-top:20px}
+.info .btn:hover{background:var(--snow)}
+
+footer{background:var(--asphalt);color:#C9CED1;padding:36px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:26px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;align-items:start}
+  .hero-text{padding-bottom:24px}
+  .signs li .sign{margin-right:0}
+  .ev{grid-template-columns:1fr}
+  .ev:nth-child(even) .pic{order:0}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:560px){
+  .top nav a:nth-child(2){display:none}
+  .top nav{gap:0}
+  .top nav a{padding:8px 8px}
+  .top img{height:26px}
+  .sign{--cut:26px}
+  .sign.next{--cut:30px}
+  .sign .face{gap:12px;padding-left:12px}
+  .sign .sym{width:36px;height:36px}
+  .sign .sym svg{width:22px;height:22px}
+  .post::before{left:22px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .signs li{animation:swing .7s cubic-bezier(.2,.8,.2,1) both}
+  .signs li:nth-child(2){animation-delay:.08s}
+  .signs li:nth-child(3){animation-delay:.16s}
+  .signs li:nth-child(4){animation-delay:.24s}
+  @keyframes swing{from{transform:translateX(-40px);opacity:0}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sign{transition:none}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a href="#"><img src="../assets/logo-h-black.png" alt="Dahlia Event"></a>
+  <nav aria-label="Huvudmeny"><a href="#evenemang">Evenemang</a><a href="#om">Om oss</a><a href="#kontakt">Kontakt</a></nav>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div class="hero-text">
+    <h1>Hitta till nästa evenemang</h1>
+    <p class="lede">Dahlia Event arrangerar mässor, marknader och fordonsträffar i Färila. Skyltarna visar hur många dagar det är kvar.</p>
+  </div>
+  <div class="post"><div class="place" aria-hidden="true"><span>Färila</span></div><ul class="signs" id="signs"></ul></div>
+</section>
+
+<section class="events" id="evenemang">
+  <div class="wrap">
+    <h2>Evenemang under året</h2>
+    <div id="list"></div>
+  </div>
+</section>
+
+<section class="about wrap" id="om">
+  <div class="about-grid">
+    <div>
+      <h2>Lätt att hitta, lätt att vara med</h2>
+      <p>Dahlia Event är evenemangsdelen av Dahlia Motor i Färila. Vi började med ATV-Mässan och har sedan dess fyllt på med fler dagar över året.</p>
+      <p>Entrén är fri och parkeringen likaså. Ideella föreningar, klubbar och skolor ställer ut gratis, och för företag följer avgiften omsättningen så att även små verksamheter har råd att vara med.</p>
+    </div>
+    <aside class="info" id="kontakt"><div class="in">
+      <h3>Kontakt</h3>
+      <p>Pellvägen 8, Färila</p>
+      <p><a href="tel:+46702516658">070-251 66 58</a></p>
+      <p><a href="mailto:info@dahliamotor.se">info@dahliamotor.se</a></p>
+      <a class="btn" href="mailto:info@dahliamotor.se?subject=Utst%C3%A4llare">Anmäl dig som utställare</a>
+    </div></aside>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><img src="../assets/logo-h-white.png" alt="Dahlia Event"><span>En del av Dahlia Motor i Färila</span></div></footer>
+
+<script>
+// Sevärdhetssymbolen (⌘) från svenska turistvägvisare
+const KRINGLA=`<svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="3" aria-hidden="true"><path d="M11 11V6.5a4.5 4.5 0 1 0-4.5 4.5H25.5A4.5 4.5 0 1 0 21 6.5V25.5a4.5 4.5 0 1 0 4.5-4.5H6.5A4.5 4.5 0 1 0 11 25.5Z"/></svg>`;
+const EVENTS=[
+ {id:"jul",name:"Julmarknaden",date:"2026-12-12",time:"kl. 12–18",place:"Gården på Pellvägen 8, Färila",img:"../assets/julmarknad.jpg",desc:"Hantverk, julmat att ta med hem och glögg vid elden. Lokala utställare i marknadsstånd under facklorna.",url:"#",cta:"Läs mer om Julmarknaden"},
+ {id:"skoter",name:"Skoterträffen",date:"2027-02-20",time:"kl. 10–16",place:"På isen vid Ljusnan, Färila",img:"../assets/skoter.jpg",desc:"Samling på isen med grillplats, gemensamma turer längs leden och tävlingar för barnen. Kom med egen skoter eller bara för att titta.",url:"#",cta:"Läs mer om Skoterträffen"},
+ {id:"veteran",name:"Veteranfordonsträffen",short:"Veteranträffen",date:"2027-06-12",time:"kl. 10–15",place:"Pellvägen 8, Färila",img:"../assets/veteran.jpg",desc:"Bilar, mopeder och traktorer med historia. Ställ upp din egen eller gå runt och prata motorer med ägarna.",url:"#",cta:"Läs mer om Veteranträffen"},
+ {id:"atv",name:"ATV-Mässan",date:"2027-08-28",time:"kl. 10–16",place:"Pellvägen 8, Färila",img:"../assets/atv-header-1600.jpg",desc:"Prova ATV och UTV på testbanan, träffa utställare inom skog och friluftsliv och låt barnen köra små ATV. Gratis inträde.",url:"https://sqrddsgn.github.io/ATV-Massan/",cta:"Gå till ATV-Mässan",ext:true}
+];
+const today=new Date();today.setHours(0,0,0,0);
+EVENTS.forEach(e=>{e.d=new Date(e.date+"T00:00:00");e.days=Math.round((e.d-today)/864e5)});
+const up=EVENTS.filter(e=>e.days>=0).sort((a,b)=>a.d-b.d);
+const short=d=>d.toLocaleDateString("sv-SE",{day:"numeric",month:"long"});
+const long=d=>{const s=d.toLocaleDateString("sv-SE",{weekday:"long",day:"numeric",month:"long",year:"numeric"});return s[0].toUpperCase()+s.slice(1)};
+const signs=document.getElementById("signs");
+up.forEach((e,i)=>{
+  const li=document.createElement("li");
+  li.innerHTML=`<a class="sign${i===0?" next":""}" href="#ev-${e.id}"><span class="face"><span class="sym">${KRINGLA}</span><span class="name">${e.short||e.name}<small>${short(e.d)}</small></span><span class="dist">${e.days}<small>${e.days===1?"dag":"dagar"}</small></span></span></a>`;
+  signs.append(li);
+});
+const list=document.getElementById("list");
+[...EVENTS].sort((a,b)=>a.d-b.d).forEach(e=>{
+  const a=document.createElement("article");a.className="ev";a.id="ev-"+e.id;
+  a.innerHTML=`<div class="pic"><img src="${e.img}" alt="" loading="lazy"></div>
+  <div><div class="when">${long(e.d)}, ${e.time}</div><h3>${e.name}</h3><p class="where">${e.place}</p><p>${e.desc}</p>
+  <a class="btn${e.ext?" brown":""}" href="${e.url}"${e.ext?' target="_blank" rel="noopener"':''}>${e.cta}</a></div>`;
+  list.append(a);
+});
+</script>
+</body>
+</html>

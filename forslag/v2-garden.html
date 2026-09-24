@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dahlia Event – Gården</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --falu:#8B2C23;
+  --falu-deep:#6E2019;
+  --knut:#F6F5F1;
+  --ochre:#DDA53B;
+  --soot:#2B2724;
+  --stone:#6B635D;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--knut);color:var(--soot);font-family:"Familjen Grotesk",system-ui,sans-serif;font-size:1.0625rem;line-height:1.55}
+a{color:inherit}
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+
+/* hero */
+.hero{position:relative;min-height:min(92vh,860px);display:flex;flex-direction:column;color:#fff;background:#3b4a3a url(../assets/landskap.jpg) center 60%/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,22,18,.45) 0%,rgba(20,22,18,0) 28%,rgba(20,22,18,0) 50%,rgba(20,22,18,.62) 100%)}
+.hero>*{position:relative;z-index:1;width:100%}
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:28px}
+.top img{height:36px;display:block}
+.top nav{display:flex;gap:30px;font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.hero-body{margin-top:auto;padding-bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+h1{font-weight:700;font-size:clamp(2.6rem,6vw,5.2rem);line-height:.98;letter-spacing:-.025em;margin:0;max-width:13ch;text-wrap:balance}
+.hero p{font-size:1.25rem;max-width:36ch;margin:22px 0 0}
+.plaque{background:var(--knut);color:var(--soot);padding:22px 26px;min-width:280px;text-decoration:none;display:block;border-left:10px solid var(--falu)}
+.plaque small{display:block;color:var(--stone);font-size:.95rem}
+.plaque strong{display:block;font-size:1.6rem;line-height:1.1;margin:4px 0 6px}
+.plaque span{font-weight:600;color:var(--falu)}
+.plaque:hover span{text-decoration:underline}
+
+/* facade */
+.facade{position:relative;color:var(--knut);padding:96px 0 104px;
+  background:
+   repeating-linear-gradient(90deg,rgba(0,0,0,0) 0 54px,rgba(0,0,0,.16) 54px 56px,rgba(255,255,255,.035) 56px 58px),
+   var(--falu)}
+.facade .inner{position:relative;padding:0 clamp(56px,7vw,96px)}
+.facade .inner::before,.facade .inner::after{content:"";position:absolute;top:-96px;bottom:-104px;width:clamp(18px,2.4vw,30px);background:var(--knut);box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.facade .inner::before{left:0}
+.facade .inner::after{right:0}
+.facade h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 12px;font-weight:700}
+.facade .intro{max-width:52ch;margin:0 0 56px;color:#F1D9D3}
+.windows{display:grid;grid-template-columns:1fr 1fr;gap:72px 56px}
+.win{display:flex;flex-direction:column}
+.frame{background:var(--knut);padding:12px;box-shadow:0 14px 0 -6px var(--falu-deep)}
+.frame img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.sill{height:12px;background:var(--knut);margin:0 -14px;box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.win .when{margin-top:28px;font-weight:600;color:#F3C9BF}
+.win h3{font-size:1.9rem;line-height:1.05;letter-spacing:-.015em;margin:6px 0 10px;font-weight:700}
+.win p{margin:0 0 16px;max-width:46ch;color:#F7E6E2}
+.win .where{font-size:.95rem;color:#F1D9D3;margin:0 0 18px}
+.win a.go{align-self:flex-start;background:var(--knut);color:var(--falu-deep);text-decoration:none;font-weight:700;padding:12px 20px}
+.win a.go:hover{background:var(--ochre);color:var(--soot)}
+.win.feature a.go{background:var(--ochre);color:var(--soot)}
+.win.feature a.go:hover{background:var(--knut)}
+
+/* about */
+.about{padding:104px 0}
+.about-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:72px;align-items:start}
+.about h2{font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 24px}
+.about p{max-width:60ch;margin:0 0 18px}
+.promises{margin:36px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+.promises li{display:flex;gap:16px;align-items:baseline}
+.promises li::before{content:"";flex:none;width:14px;height:14px;background:var(--ochre);transform:translateY(1px)}
+.card{background:#fff;border-top:10px solid var(--falu);padding:32px}
+.card h3{margin:0 0 16px;font-size:1.4rem}
+.card p{margin:0 0 6px}
+.card a{color:var(--falu);font-weight:600}
+.card .btn{display:inline-block;margin-top:22px;background:var(--falu);color:#fff;text-decoration:none;padding:14px 22px;font-weight:700}
+.card .btn:hover{background:var(--falu-deep)}
+
+footer{background:var(--soot);color:#CFC8C2;padding:40px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:28px}
+
+@media (max-width:900px){
+  .hero-body{flex-direction:column;align-items:flex-start}
+  .windows{grid-template-columns:1fr;gap:64px}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+}
+@media (max-width:560px){
+  .top nav a:nth-child(2){display:none}
+  .top nav{gap:18px}
+  .top img{height:28px}
+  .facade .inner{padding:0 34px}
+  .facade .inner::before,.facade .inner::after{width:12px}
+  .plaque{min-width:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap top">
+    <a href="#"><img src="../assets/logo-h-white.png" alt="Dahlia Event"></a>
+    <nav aria-label="Huvudmeny"><a href="#evenemang">Evenemang</a><a href="#om">Om oss</a><a href="#kontakt">Kontakt</a></nav>
+  </div>
+  <div class="wrap hero-body">
+    <div>
+      <h1>Mässor, marknader och träffar i Färila</h1>
+      <p>Dahlia Event samlar bygden fyra gånger om året. Fri entré, fri parkering och plats för alla.</p>
+    </div>
+    <a class="plaque" id="plaque" href="#evenemang"></a>
+  </div>
+</header>
+
+<main>
+<section class="facade" id="evenemang">
+  <div class="wrap"><div class="inner">
+    <h2>Årets evenemang</h2>
+    <p class="intro">Från julmarknad i snön till ATV-mässa i augusti. Alla evenemang hålls i Färila och är öppna för hela familjen.</p>
+    <div class="windows" id="windows"></div>
+  </div></div>
+</section>
+
+<section class="about wrap" id="om">
+  <div class="about-grid">
+    <div>
+      <h2>Arrangerat av folk från bygden</h2>
+      <p>Dahlia Event är evenemangsdelen av Dahlia Motor i Färila. Vi började med ATV-Mässan och har byggt vidare med fler dagar under året, för att ge Hälsingland fler anledningar att ses.</p>
+      <p>Vi vill att det ska vara enkelt att vara med, både som besökare och som utställare.</p>
+      <ul class="promises">
+        <li>Fri entré och fri parkering på våra evenemang</li>
+        <li>Ideella föreningar, klubbar och skolor ställer ut gratis</li>
+        <li>Utställaravgiften för företag följer omsättningen</li>
+      </ul>
+    </div>
+    <aside class="card" id="kontakt">
+      <h3>Hör av dig</h3>
+      <p>Pellvägen 8, Färila</p>
+      <p><a href="tel:+46702516658">070-251 66 58</a></p>
+      <p><a href="mailto:info@dahliamotor.se">info@dahliamotor.se</a></p>
+      <a class="btn" href="mailto:info@dahliamotor.se?subject=Utst%C3%A4llare">Anmäl dig som utställare</a>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><img src="../assets/logo-h-white.png" alt="Dahlia Event"><span>En del av Dahlia Motor i Färila</span></div></footer>
+
+<script>
+const EVENTS=[
+ {id:"jul",name:"Julmarknaden",date:"2026-12-12",time:"kl. 12–18",place:"Gården på Pellvägen 8",img:"../assets/julmarknad.jpg",desc:"Hantverk, julmat att ta med hem och glögg vid elden. Lokala utställare i marknadsstånd under facklorna.",url:"#",cta:"Läs mer"},
+ {id:"skoter",name:"Skoterträffen",date:"2027-02-20",time:"kl. 10–16",place:"På isen vid Ljusnan",img:"../assets/skoter.jpg",desc:"Samling på isen med grillplats, gemensamma turer och tävlingar för barnen. Kom med egen skoter eller bara för att titta.",url:"#",cta:"Läs mer"},
+ {id:"veteran",name:"Veteranfordonsträffen",date:"2027-06-12",time:"kl. 10–15",place:"Pellvägen 8",img:"../assets/veteran.jpg",desc:"Bilar, mopeder och traktorer med historia. Ställ upp din egen eller gå runt och prata motorer med ägarna.",url:"#",cta:"Läs mer"},
+ {id:"atv",name:"ATV-Mässan",date:"2027-08-28",time:"kl. 10–16",place:"Pellvägen 8",img:"../assets/atv-header-1600.jpg",desc:"Prova ATV och UTV på testbanan och träffa utställare inom skog och friluftsliv. Barnen kan köra små ATV. Gratis inträde.",url:"https://sqrddsgn.github.io/ATV-Massan/",cta:"Till ATV-Mässan",ext:true,feature:true}
+];
+const today=new Date();today.setHours(0,0,0,0);
+const long=d=>d.toLocaleDateString("sv-SE",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+EVENTS.forEach(e=>{e.d=new Date(e.date+"T00:00:00");e.days=Math.round((e.d-today)/864e5)});
+const next=EVENTS.filter(e=>e.days>=0).sort((a,b)=>a.d-b.d)[0]||EVENTS[0];
+document.getElementById("plaque").innerHTML=`<small>Nästa evenemang</small><strong>${next.name}</strong><small>${long(next.d)}</small><span>Om ${next.days} dagar</span>`;
+document.getElementById("plaque").href="#ev-"+next.id;
+const w=document.getElementById("windows");
+EVENTS.sort((a,b)=>a.d-b.d).forEach(e=>{
+  const a=document.createElement("article");a.className="win"+(e.feature?" feature":"");a.id="ev-"+e.id;
+  const d=long(e.d);
+  a.innerHTML=`<div class="frame"><img src="${e.img}" alt="" loading="lazy"></div><div class="sill"></div>
+  <div class="when">${d.charAt(0).toUpperCase()+d.slice(1)}, ${e.time}</div>
+  <h3>${e.name}</h3><p class="where">${e.place}, Färila</p><p>${e.desc}</p>
+  <a class="go" href="${e.url}"${e.ext?' target="_blank" rel="noopener"':''}>${e.cta}<span class="sr"> om ${e.name}</span></a>`;
+  w.append(a);
+});
+</script>
+<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dahlia Event förslag</title>
+<style>
+:root{--bg:#F3F4F2;--fg:#222;--muted:#666;--card:#fff;--line:#ddd}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1c1b;--fg:#eee;--muted:#aaa;--card:#262826;--line:#3a3a3a}}
+:root[data-theme="dark"]{--bg:#1b1c1b;--fg:#eee;--muted:#aaa;--card:#262826;--line:#3a3a3a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif;line-height:1.5}
+main{max-width:1100px;margin:0 auto;padding:48px 16px 64px}
+h1{font-size:2rem;margin:0 0 8px}
+p.lead{color:var(--muted);margin:0 0 40px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;color:inherit;text-decoration:none}
+a.card:hover{border-color:var(--fg)}
+a.card:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.sw{height:140px;display:flex}
+.sw span{flex:1}
+.card div.t{padding:18px 20px 22px}
+.card h2{margin:0 0 6px;font-size:1.25rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Dahlia Event, förslag</h1>
+<p class="lead">Tre riktningar plus en kombination för Dahlia Events webbplats. Alla har samma innehåll: fyra evenemang, där ATV-Mässan länkar till sin riktiga sida och de andra tre är platshållare.</p>
+<div class="grid">
+  <a class="card" href="../"><div class="sw"><span style="background:#1D3A2E"></span><span style="background:#EDEFEA"></span><span style="background:#A3174A"></span></div><div class="t"><h2>4. Kombination</h2><p>Färger, typsnitt och evenemangslista från Årshjulet, med Gårdens stora landskapsfoto som toppbild. Hjulet är borttaget.</p></div></a>
+  <a class="card" href="v1-arshjulet.html"><div class="sw"><span style="background:#EDEFEA"></span><span style="background:#1D3A2E"></span><span style="background:#A3174A"></span></div><div class="t"><h2>1. Årshjulet</h2><p>Året visas som ett hjul med evenemangen utsatta och en nedräkning till nästa. Typsnittet är Archivo i bred skärning, som i logotypen.</p></div></a>
+  <a class="card" href="v2-garden.html"><div class="sw"><span style="background:#8B2C23"></span><span style="background:#F6F5F1"></span><span style="background:#DDA53B"></span></div><div class="t"><h2>2. Gården</h2><p>Faluröd panel med vita knutar och evenemangen i fönsterkarmar, framför ett stort landskapsfoto. Typsnittet är Familjen Grotesk.</p></div></a>
+  <a class="card" href="v3-vagvisaren.html"><div class="sw"><span style="background:#7A4A26"></span><span style="background:#0B5AA2"></span><span style="background:#EEF1F2"></span></div><div class="t"><h2>3. Vägvisaren</h2><p>Bruna turistskyltar med sevärdhetssymbolen ⌘ pekar mot varje evenemang och visar antal dagar kvar. Typsnittet är Overpass.</p></div></a>
+</div>
+</main>
+</body>
+</html>
