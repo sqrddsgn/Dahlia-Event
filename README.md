@@ -8,4 +8,4 @@ Live: https://sqrddsgn.github.io/Dahlia-Event/
 - `forslag/` – de tidigare designförslagen (Årshjulet, Gården, Vägvisaren)
 - `assets/` – logotyper och bilder
 
-Evenemangen ligger i `EVENTS`-listan längst ner i `index.html`. ATV-Mässan och Veteranbilsmarknad & Träff är riktiga evenemang; Julmarknaden och Skoterträffen är platshållare.
+Evenemangen ligger i `EVENTS`-listan längst ner i `index.html`. Skoterträffen, Veteranbilsmarknad & Träff och ATV-Mässan är riktiga evenemang; Julmarknaden är en platshållare.
