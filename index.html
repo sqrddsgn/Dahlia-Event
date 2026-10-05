@@ -36,7 +36,8 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 .top nav a{text-decoration:none}
 .top nav a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
 .hero-body{margin-top:auto;padding-bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
-h1{font-variation-settings:"wdth" 110;font-weight:800;font-size:clamp(2.4rem,5.6vw,5rem);line-height:.98;letter-spacing:-.02em;margin:0;max-width:12ch;text-wrap:balance}
+h1{font-variation-settings:"wdth" 110;font-weight:800;font-size:clamp(2.4rem,5vw,4.4rem);line-height:.98;letter-spacing:-.02em;margin:0}
+@media (min-width:700px){h1 .ln{display:block;white-space:nowrap}}
 .lede{max-width:38ch;font-size:1.2rem;margin:24px 0 0;color:#E6ECE7}
 .next{display:block;flex:none;background:var(--paper);color:var(--pine);text-decoration:none;min-width:300px;padding:22px 26px 22px 22px;border-left:6px solid var(--dahlia)}
 .next small{display:block;color:var(--moss);font-size:.95rem}
@@ -111,7 +112,7 @@ footer img{height:26px;opacity:.75}
   </div>
   <div class="wrap hero-body">
     <div>
-      <h1>Ett år av evenemang i Färila</h1>
+      <h1><span class="ln">Evenemang &amp; mässor,</span> <span class="ln">året runt, i Färila</span></h1>
       <p class="lede">Dahlia Event arrangerar mässor, marknader och fordonsträffar i Hälsingland. Öppet för alla, med fri entré och fri parkering.</p>
     </div>
     <a class="next" id="nextBox" href="#evenemang"></a>
