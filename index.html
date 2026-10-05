@@ -36,22 +36,24 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 .top nav a{text-decoration:none}
 .top nav a:hover{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
 .hero-body{margin-top:auto;padding-bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
-h1{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(2.4rem,5.6vw,5rem);line-height:.98;letter-spacing:-.02em;margin:0;max-width:12ch;text-wrap:balance}
+h1{font-variation-settings:"wdth" 110;font-weight:800;font-size:clamp(2.4rem,5.6vw,5rem);line-height:.98;letter-spacing:-.02em;margin:0;max-width:12ch;text-wrap:balance}
 .lede{max-width:38ch;font-size:1.2rem;margin:24px 0 0;color:#E6ECE7}
 .next{display:block;flex:none;background:var(--paper);color:var(--pine);text-decoration:none;min-width:300px;padding:22px 26px 22px 22px;border-left:6px solid var(--dahlia)}
 .next small{display:block;color:var(--moss);font-size:.95rem}
-.next strong{display:block;font-size:1.6rem;line-height:1.1;margin:4px 0 8px;font-variation-settings:"wdth" 118;font-weight:800}
+.next strong{display:block;font-size:1.6rem;line-height:1.1;margin:4px 0 8px;font-variation-settings:"wdth" 106;font-weight:800}
 .next span{display:inline-block;margin-top:10px;color:var(--dahlia);font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
 .next:hover{background:#fff}
 
 /* events */
 .events{background:var(--paper);padding:88px 0}
-.events h2,.about h2{font-variation-settings:"wdth" 118;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.01em;margin:0 0 40px;line-height:1.05}
-.ev-row{display:grid;grid-template-columns:120px minmax(0,1.1fr) minmax(0,1.6fr) 260px;gap:32px;align-items:center;padding:28px 0;border-top:1.5px solid var(--line);text-decoration:none;position:relative}
+.events h2,.about h2{font-variation-settings:"wdth" 106;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.01em;margin:0 0 40px;line-height:1.05}
+.ev-row{display:grid;grid-template-columns:140px minmax(0,1.1fr) minmax(0,1.6fr) 260px;gap:32px;align-items:center;padding:28px 0;border-top:1.5px solid var(--line);text-decoration:none;position:relative}
 .ev-row:last-child{border-bottom:1.5px solid var(--line)}
-.ev-row .d{font-variation-settings:"wdth" 125;font-weight:800;font-size:2.6rem;line-height:.9}
+.ev-row .d{font-variation-settings:"wdth" 110;font-weight:800;font-size:2.6rem;line-height:.9}
+.ev-row .d.range{font-size:2rem}
+.ev-row .d b{font:inherit;white-space:nowrap}
 .ev-row .d span{display:block;font-size:.95rem;font-weight:500;font-variation-settings:"wdth" 100;color:var(--moss);margin-top:8px}
-.ev-row h3{margin:0 0 6px;font-size:1.5rem;font-variation-settings:"wdth" 112;font-weight:700;line-height:1.15}
+.ev-row h3{margin:0 0 6px;font-size:1.5rem;font-variation-settings:"wdth" 102;font-weight:700;line-height:1.15}
 .ev-row .where{color:var(--moss);font-size:.98rem}
 .ev-row p{margin:0;max-width:52ch}
 .ev-row .go{display:inline-block;margin-top:12px;font-weight:600;color:var(--dahlia);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
@@ -66,9 +68,9 @@ h1{font-stretch:125%;font-variation-settings:"wdth" 125;font-weight:800;font-siz
 .about p{max-width:58ch;margin:0 0 18px}
 .facts{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .facts li{border-top:4px solid var(--pine);padding-top:12px;font-size:.98rem}
-.facts b{display:block;font-variation-settings:"wdth" 118;font-size:1.1rem}
+.facts b{display:block;font-variation-settings:"wdth" 106;font-size:1.1rem}
 .contact{background:var(--pine);color:var(--birch);padding:36px;border-radius:2px;align-self:start}
-.contact h3{margin:0 0 18px;font-variation-settings:"wdth" 118;font-size:1.4rem}
+.contact h3{margin:0 0 18px;font-variation-settings:"wdth" 106;font-size:1.4rem}
 .contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px}
 .contact dt{color:#A9BCB1}
 .contact dd{margin:0}
@@ -110,7 +112,7 @@ footer img{height:26px;opacity:.75}
   <div class="wrap hero-body">
     <div>
       <h1>Ett år av evenemang i Färila</h1>
-      <p class="lede">Dahlia Event arrangerar mässor, marknader och fordonsträffar i Hälsingland. Fyra dagar om året, öppna för alla.</p>
+      <p class="lede">Dahlia Event arrangerar mässor, marknader och fordonsträffar i Hälsingland. Öppet för alla, med fri entré och fri parkering.</p>
     </div>
     <a class="next" id="nextBox" href="#evenemang"></a>
   </div>
@@ -155,13 +157,13 @@ footer img{height:26px;opacity:.75}
 const EVENTS=[
  {id:"jul",name:"Julmarknaden",date:"2026-12-12",time:"kl. 12–18",place:"Gården på Pellvägen 8, Färila",img:"assets/julmarknad.jpg",desc:"Hantverk, julmat att ta med hem och glögg vid elden. Lokala utställare i marknadsstånd under facklorna.",url:"#",cta:"Läs mer om Julmarknaden"},
  {id:"skoter",name:"Skoterträffen",date:"2027-02-20",time:"kl. 10–16",place:"På isen vid Ljusnan, Färila",img:"assets/skoter.jpg",desc:"Samling på isen med grillplats, gemensamma turer längs leden och tävlingar för barnen. Kom med egen skoter eller bara för att titta.",url:"#",cta:"Läs mer om Skoterträffen"},
- {id:"veteran",name:"Veteranfordonsträffen",short:"Veteranträffen",date:"2027-06-12",time:"kl. 10–15",place:"Pellvägen 8, Färila",img:"assets/veteran.jpg",desc:"Bilar, mopeder och traktorer med historia. Ställ upp din egen eller gå runt och prata motorer med ägarna.",url:"#",cta:"Läs mer om Veteranfordonsträffen"},
+ {id:"veteran",name:"Veteranbilsmarknad & Träff",date:"2027-06-18",end:"2027-06-19",time:"fre 16:00 till lör 16:00",place:"Pellvägen 8, Färila",img:"assets/veteran.jpg",desc:"Veteranmarknad och veteranbilsträff inför Cruisingen i Ljusdal, tillsammans med Roadrunners Ljusdal. Ta med din veteranbil eller kom och titta.",url:"https://www.facebook.com/events/1025425517176799/",cta:"Se evenemanget på Facebook",ext:true},
  {id:"atv",name:"ATV-Mässan",date:"2027-08-28",time:"kl. 10–16",place:"Pellvägen 8, Färila",img:"assets/atv-header-1600.jpg",desc:"Prova ATV och UTV på testbanan, träffa utställare inom skog och friluftsliv, och låt barnen köra små ATV. Gratis inträde.",url:"https://sqrddsgn.github.io/ATV-Massan/",cta:"Gå till ATV-Mässan",ext:true}
 ];
 const MON=["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"];
 const fmtLong=d=>d.toLocaleDateString("sv-SE",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
 const today=new Date();today.setHours(0,0,0,0);
-EVENTS.forEach(e=>{e.d=new Date(e.date+"T00:00:00");e.days=Math.round((e.d-today)/864e5)});
+EVENTS.forEach(e=>{e.d=new Date(e.date+"T00:00:00");if(e.end)e.e=new Date(e.end+"T00:00:00");e.days=Math.round((e.d-today)/864e5)});
 const upcoming=EVENTS.filter(e=>e.days>=0).sort((a,b)=>a.d-b.d);
 const next=upcoming[0]||EVENTS[0];
 const dayWord=n=>n===0?"i dag":n===1?"i morgon":`om ${n} dagar`;
@@ -174,7 +176,7 @@ nb.innerHTML=`<small>Nästa evenemang, ${dayWord(next.days)}</small><strong>${ne
 const list=document.getElementById("list");
 [...EVENTS].sort((a,b)=>a.d-b.d).forEach(e=>{
   const row=document.createElement("article");row.className="ev-row";row.id="ev-"+e.id;row.dataset.id=e.id;
-  row.innerHTML=`<div class="d">${e.d.getDate()} ${MON[e.d.getMonth()]}<span>${e.d.getFullYear()}, ${e.time}</span></div>
+  row.innerHTML=`<div class="d${e.e?" range":""}"><b>${e.d.getDate()}${e.e?"–"+e.e.getDate():""}</b> ${MON[e.d.getMonth()]}<span>${e.d.getFullYear()}, ${e.time}</span></div>
   <div class="body"><h3>${e.name}</h3><div class="where">${e.place}</div></div>
   <div class="desc"><p>${e.desc}</p><a class="go" href="${e.url}"${e.ext?' target="_blank" rel="noopener"':''}>${e.cta}</a></div>
   <div class="pic"><img src="${e.img}" alt="" loading="lazy"></div>`;
