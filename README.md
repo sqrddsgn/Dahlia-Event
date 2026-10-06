@@ -5,6 +5,7 @@ Webbplats för Dahlia Event, evenemangsdelen av Dahlia Motor i Färila.
 Live: https://sqrddsgn.github.io/Dahlia-Event/
 
 - `index.html` – webbplatsen
+- `skotertraffen/` – sida för Skoterträffen i Färila
 - `forslag/` – de tidigare designförslagen (Årshjulet, Gården, Vägvisaren)
 - `assets/` – logotyper och bilder
 
